@@ -1,0 +1,62 @@
+<h3>Lista de Personas</h3>
+<table border="2">
+    <tr>
+        <td>Nombres</td>
+        <td>Apellidos</td>
+        <td>Documento</td>
+        <td>Género</td>
+        <td>Correo</td>
+    </tr>
+
+    <tr *ngFor="let persona of listaPersonas">
+        <td>{{persona.nombres}}</td>
+        <td>{{persona.apellidos}}</td>
+        <td>{{persona.documento}}</td>
+        <td>{{persona.genero}}</td>
+        <td>{{persona.correo}}</td>
+        <td>
+            <button (click)=eliminarPersonas(persona._id)>
+            <img height="20" src="../../../assets/img/delete_icon.png">
+          </button>
+        </td>
+        <td>
+            <button (click)=mostrarPersonas(persona)>
+            <img height="20" src="../../../assets/img/edit_icon.png">
+          </button>
+        </td>
+    </tr>
+
+</table>
+
+<hr>
+
+<table>
+    <tr>
+        <td>Nombres</td>
+        <td><input type="text" name=nombres [(ngModel)]="persona.nombres"></td>
+    </tr>
+    <tr>
+        <td>Apellidos</td>
+        <td><input type="text" name=apellidos [(ngModel)]="persona.apellidos"></td>
+    </tr>
+    <tr>
+        <td>Documento</td>
+        <td><input type="text" name=documento [(ngModel)]="persona.documento"></td>
+    </tr>
+    <tr>
+        <td>Género</td>
+        <select type="text" name="genero" [(ngModel)]="persona.genero">
+          <option value="M">Masculino</option>
+          <option value="F">Femenino</option>
+        </select>
+    </tr>
+    <tr>
+        <td>Correo</td>
+        <td><input type="text" name="correo" [(ngModel)]="persona.correo"></td>
+    </tr>
+</table>
+<hr>
+<tr>
+    <button (click)="guardarPersonas()">Guardar</button>
+    <button (click)="limpiarFormulario()">Limpiar</button>
+</tr>
